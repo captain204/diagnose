@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Nutrition</title>
+	<title>Cholera Diagnosis System</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
@@ -37,7 +37,7 @@
 						<h4 class="display-3">Cholera Diagnosis System</h4>
 					</span>
 					<span class="login100-form-avatar">
-						<img src="<?php echo base_url();?>assets/Login/images/avatar-01.jpg" alt="AVATAR">
+						<img src="<?php echo base_url();?>assets/Login/images/logo.jpeg" alt="AVATAR">
 					</span>
 					<?php if($this->session->flashdata('registered')):?>
 						<div class="alert alert-success">
@@ -66,14 +66,6 @@
 
 						</div>
 					</form>
-						<li>
-							<span class="txt1">
-								Don’t have an account?
-							</span>
-							<a href="<?=base_url();?>clinic/register?>" class="txt2">
-								Register
-							</a>
-						</li>
 					</ul>
 				</form>
 			</div>

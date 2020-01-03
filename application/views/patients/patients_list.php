@@ -12,7 +12,7 @@
     <body>
         <?php if($this->session->userdata('username')):?>
             <div class="alert alert-success">
-                    <?php echo ($this->session->userdata('username'));?>
+                    <h5>Hello!! <?php echo ($this->session->userdata('username'));?></h5>
             </div>
         <?php endif;?>
 

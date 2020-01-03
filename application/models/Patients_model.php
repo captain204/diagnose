@@ -8,6 +8,7 @@ class Patients_model extends CI_Model
 
     public $table = 'patients';
     public $id = 'id';
+    public $patient_id ='patient_id';
     public $order = 'DESC';
 
     function __construct()
@@ -26,6 +27,11 @@ class Patients_model extends CI_Model
     function get_by_id($id)
     {
         $this->db->where($this->id, $id);
+        return $this->db->get($this->table)->row();
+    }
+
+    function get_by_patient_id($patient_id){
+        $this->db->where($this->patient_id, $patient_id);
         return $this->db->get($this->table)->row();
     }
     

@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Admin</title>
+  <title>Cholera Diagnosis</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="../../node_modules/mdi/css/materialdesignicons.min.css">
   <link rel="stylesheet" href="../../node_modules/simple-line-icons/css/simple-line-icons.css">
@@ -30,25 +30,25 @@
         <nav class="sidebar sidebar-offcanvas" id="sidebar">
           <ul class="nav">
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url();?>nutrition">
+              <a class="nav-link" href="<?php echo base_url();?>patients">
                 <span class="menu-title">Home</span>
                 <i class="icon-speedometer menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url();?>clinic/read/<?=($this->session->userdata('id'));?>">
+              <a class="nav-link" href="<?php echo base_url();?>users/read/<?=($this->session->userdata('id'));?>">
                 <span class="menu-title">Profile</span>
                 <i class="icon-speedometer menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="<?php echo base_url();?>nutrition/create_action">
+              <a class="nav-link" href="<?php echo base_url();?>patients/create_action">
                 <span class="menu-title">Add patient</span>
                 <i class="icon-flag menu-icon"></i>
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" data-toggle="collapse" href="<?php echo base_url();?>clinic/logout" aria-expanded="false" aria-controls="ui-basic">
+              <a class="nav-link" data-toggle="collapse" href="<?php echo base_url();?>users/logout" aria-expanded="false" aria-controls="ui-basic">
                 <span class="menu-title">Logout</span>
                 <i class="icon-layers menu-icon"></i>
               </a>

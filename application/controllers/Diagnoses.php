@@ -98,7 +98,7 @@ class Diagnoses extends CI_Controller
 
             $this->Diagnoses_model->insert($data);
             $this->session->set_flashdata('message', 'Create Record Success');
-            redirect(site_url('diagnoses'));
+            redirect(site_url('patients'));
         }
     }
     
@@ -143,23 +143,11 @@ class Diagnoses extends CI_Controller
         }
     }
     
-    public function delete($id) 
-    {
-        $row = $this->Diagnoses_model->get_by_id($id);
-
-        if ($row) {
-            $this->Diagnoses_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('diagnoses'));
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('diagnoses'));
-        }
-    }
+    
 
     public function results($id)
     {
-            $row = $this->Diagnoses_model->get_by_id($id);
+            $row = $this->Diagnoses_model->get_by_patient_id($id);
             $row_two = $this->Patients_model->get_by_id($id);
      
             if ($row) {
@@ -413,9 +401,6 @@ class Diagnoses extends CI_Controller
 	$this->form_validation->set_rules('vomiting', 'vomiting', 'trim|required');
 	$this->form_validation->set_rules('dehydration', 'dehydration', 'trim|required');
 	$this->form_validation->set_rules('patient_id', 'patient id', 'trim|required');
-	$this->form_validation->set_rules('created_at', 'created at', 'trim|required');
-	$this->form_validation->set_rules('updated_at', 'updated at', 'trim|required');
-
 	$this->form_validation->set_rules('id', 'id', 'trim');
 	$this->form_validation->set_error_delimiters('<span class="text-danger">', '</span>');
     }

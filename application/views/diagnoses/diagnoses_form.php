@@ -13,6 +13,7 @@
         <h2 class="text-center" style="margin-top:0px">Please Select Severity Level *</h2>
         <div class="text-center">    
             <form action="<?php echo $action; ?>" method="post">
+            <?php echo ($this->session->userdata('patient_id'));?>
                 <div class="form-group">
                     <label for="varchar">Diarrhorea <?php echo form_error('diarrhorea') ?></label>
                     <select name="diarrhorea" id="diarrhorea" class="form-control">
@@ -40,8 +41,8 @@
                         <option value="severe">Severe</option>
                     </select>
                 </div>        
-                    <input type="hidden" class="form-control" name="patient_id" id="patient_id" placeholder="Patient Id" value="<?php echo $patient_id; ?>" />
-                <input type="hidden" name="id" value="<?php echo $id; ?>" /> 
+                    <input type="hidden" class="form-control" name="patient_id" id="patient_id"value="<?php echo ($this->session->userdata('patient_id'));?>" />
+                <input type="hidden" name="id" value="<?php echo $id; ?>"/> 
                 <button type="submit" class="btn btn-primary"><?php echo $button ?></button> 
             </form>
         </div>

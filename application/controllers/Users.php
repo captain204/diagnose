@@ -49,18 +49,17 @@ class Users extends CI_Controller
         if ($row) {
             $data = array(
 		'id' => $row->id,
-		'name' => $row->name,
+		'username' => $row->username,
 		'email' => $row->email,
-		'email_verified_at' => $row->email_verified_at,
 		'password' => $row->password,
-		'remember_token' => $row->remember_token,
-		'created_at' => $row->created_at,
-		'updated_at' => $row->updated_at,
-	    );
-            $this->load->view('users/users_read', $data);
+        );
+            
+            $data['content'] ='users/users_read';
+            $this->load->view('layouts/main_clinic', $data);
+            #$this->load->view('users/users_read', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('users'));
+            redirect(site_url('patients'));
         }
     }
 
@@ -70,13 +69,9 @@ class Users extends CI_Controller
             'button' => 'Create',
             'action' => site_url('users/create_action'),
 	    'id' => set_value('id'),
-	    'name' => set_value('name'),
+	    'username' => set_value('name'),
 	    'email' => set_value('email'),
-	    'email_verified_at' => set_value('email_verified_at'),
 	    'password' => set_value('password'),
-	    'remember_token' => set_value('remember_token'),
-	    'created_at' => set_value('created_at'),
-	    'updated_at' => set_value('updated_at'),
 	);
         $this->load->view('users/users_form', $data);
     }
@@ -91,11 +86,7 @@ class Users extends CI_Controller
             $data = array(
 		'name' => $this->input->post('name',TRUE),
 		'email' => $this->input->post('email',TRUE),
-		'email_verified_at' => $this->input->post('email_verified_at',TRUE),
 		'password' => $this->input->post('password',TRUE),
-		'remember_token' => $this->input->post('remember_token',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
 	    );
 
             $this->Users_model->insert($data);
@@ -113,18 +104,14 @@ class Users extends CI_Controller
                 'button' => 'Update',
                 'action' => site_url('users/update_action'),
 		'id' => set_value('id', $row->id),
-		'name' => set_value('name', $row->name),
+		'username' => set_value('name', $row->name),
 		'email' => set_value('email', $row->email),
-		'email_verified_at' => set_value('email_verified_at', $row->email_verified_at),
 		'password' => set_value('password', $row->password),
-		'remember_token' => set_value('remember_token', $row->remember_token),
-		'created_at' => set_value('created_at', $row->created_at),
-		'updated_at' => set_value('updated_at', $row->updated_at),
 	    );
             $this->load->view('users/users_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('users'));
+            redirect(site_url('patients'));
         }
     }
     
@@ -138,33 +125,15 @@ class Users extends CI_Controller
             $data = array(
 		'name' => $this->input->post('name',TRUE),
 		'email' => $this->input->post('email',TRUE),
-		'email_verified_at' => $this->input->post('email_verified_at',TRUE),
 		'password' => $this->input->post('password',TRUE),
-		'remember_token' => $this->input->post('remember_token',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
 	    );
 
             $this->Users_model->update($this->input->post('id', TRUE), $data);
             $this->session->set_flashdata('message', 'Update Record Success');
-            redirect(site_url('users'));
+            redirect(site_url('patients'));
         }
     }
     
-    public function delete($id) 
-    {
-        $row = $this->Users_model->get_by_id($id);
-
-        if ($row) {
-            $this->Users_model->delete($id);
-            $this->session->set_flashdata('message', 'Delete Record Success');
-            redirect(site_url('users'));
-        } else {
-            $this->session->set_flashdata('message', 'Record Not Found');
-            redirect(site_url('users'));
-        }
-    }
-
     
     public function login(){
         

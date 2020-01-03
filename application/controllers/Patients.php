@@ -119,9 +119,9 @@ class Patients extends CI_Controller
 		'doc_name' => $this->input->post('doc_name',TRUE),
 		'doc_id' => $this->input->post('doc_id',TRUE),
 	    );
-
             $this->Patients_model->insert($data);
-            $last_id = $this->Patients_model->insert_id();
+            $last_id = $this->db->insert_id();
+            $this->session->set_userdata('patient_id',$last_id);
             $this->session->set_flashdata('message', 'Create Record Success');
             redirect(site_url('diagnoses/create'));
         }
@@ -133,7 +133,7 @@ class Patients extends CI_Controller
 
         if ($row) {
             $data = array(
-                'button' => 'Update',
+                'button' => 'Update Patient Information',
                 'action' => site_url('patients/update_action'),
 		'id' => set_value('id', $row->id),
 		'firstname' => set_value('firstname', $row->firstname),
@@ -146,10 +146,11 @@ class Patients extends CI_Controller
 		'occupation' => set_value('occupation', $row->occupation),
 		'doc_name' => set_value('doc_name', $row->doc_name),
 		'doc_id' => set_value('doc_id', $row->doc_id),
-		'created_at' => set_value('created_at', $row->created_at),
-		'updated_at' => set_value('updated_at', $row->updated_at),
-	    );
-            $this->load->view('patients/patients_form', $data);
+        );
+            $data['title'] = 'Patient';
+            $data['content'] ='patients/patients_form';
+            $this->load->view('layouts/main_clinic', $data);
+            #$this->load->view('patients/patients_form', $data);
         } else {
             $this->session->set_flashdata('message', 'Record Not Found');
             redirect(site_url('patients'));
@@ -174,8 +175,6 @@ class Patients extends CI_Controller
 		'occupation' => $this->input->post('occupation',TRUE),
 		'doc_name' => $this->input->post('doc_name',TRUE),
 		'doc_id' => $this->input->post('doc_id',TRUE),
-		'created_at' => $this->input->post('created_at',TRUE),
-		'updated_at' => $this->input->post('updated_at',TRUE),
 	    );
 
             $this->Patients_model->update($this->input->post('id', TRUE), $data);
