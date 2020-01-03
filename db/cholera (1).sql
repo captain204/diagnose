@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2020 at 10:45 PM
+-- Generation Time: Jan 03, 2020 at 12:25 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -64,7 +64,9 @@ CREATE TABLE `diagnoses` (
 --
 
 INSERT INTO `diagnoses` (`id`, `diarrhorea`, `vomiting`, `dehydration`, `patient_id`, `created_at`, `updated_at`) VALUES
-(1, 'mild', 'mild', 'moderate', 1, '2019-11-27 16:56:15', '2019-11-27 16:56:15');
+(1, 'mild', 'mild', 'moderate', 1, '2019-11-27 16:56:15', '2019-11-27 16:56:15'),
+(2, 'mild', 'mild', 'moderate', 5, NULL, NULL),
+(3, 'moderate', 'moderate', 'severe', 6, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -143,7 +145,8 @@ CREATE TABLE `patients` (
 
 INSERT INTO `patients` (`id`, `firstname`, `lastname`, `marital_status`, `date_birth`, `phone`, `email`, `address`, `occupation`, `doc_name`, `doc_id`) VALUES
 (1, 'Eniola', 'Badmos', 'single', '1988-01-04', '08023484844', 'eni@gmail.com', 'Lekki Phase Two', 'Actress', 'admin', 1),
-(2, 'captain', 'captain', 'single', '1991-04-04', '08023484844', 'userone@gmail.com', 'Jos North', 'Developer', 'Mr Doctor', 2);
+(5, 'Uncle', 'Nas', 'married', '2020-01-02', '07067653476', 'test@gmail.com', 'Bauchi', 'Doctor', 'Mr Doctor', 2),
+(6, 'Folasade', 'Martins', 'married', '2020-01-03', '08023484844', 'john@example.com', 'Jos North', 'Actress', 'Mr Doctor', 2);
 
 -- --------------------------------------------------------
 
@@ -256,7 +259,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `diagnoses`
 --
 ALTER TABLE `diagnoses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -274,7 +277,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `reports`
