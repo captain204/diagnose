@@ -54,7 +54,14 @@ class Diagnoses extends CI_Controller
 		'diarrhorea' => $row->diarrhorea,
 		'vomiting' => $row->vomiting,
 		'dehydration' => $row->dehydration,
-		'patient_id' => $row->patient_id,
+        'patient_id' => $row->patient_id,
+        'appearance' => $row->appearance,
+        'consistency' => $row->consistency,
+        'mucus' => $row->mucus,
+        'ova' => $row->ova,
+        'cyst' => $row->cyst,
+        'larva' => $row->larva,
+        'organism' => $row->organism,
 		'created_at' => $row->created_at,
 		'updated_at' => $row->updated_at,
 	    );
@@ -74,7 +81,14 @@ class Diagnoses extends CI_Controller
 	    'diarrhorea' => set_value('diarrhorea'),
 	    'vomiting' => set_value('vomiting'),
 	    'dehydration' => set_value('dehydration'),
-	    'patient_id' => set_value('patient_id'),
+        'patient_id' => set_value('patient_id'),
+        'appearance' => set_value('appearance'),
+        'consistency' => set_value('consistency'),
+        'mucus' => set_value('mucus'),
+        'ova' => set_value('ova'),
+        'cyst' => set_value('cyst'),
+        'larva' => set_value('larva'),
+        'organism' => set_value('organism'),
 	);
     
         $data['content'] ='diagnoses/diagnoses_form';
@@ -93,7 +107,14 @@ class Diagnoses extends CI_Controller
 		'diarrhorea' => $this->input->post('diarrhorea',TRUE),
 		'vomiting' => $this->input->post('vomiting',TRUE),
 		'dehydration' => $this->input->post('dehydration',TRUE),
-		'patient_id' => $this->input->post('patient_id',TRUE),
+        'patient_id' => $this->input->post('patient_id',TRUE),
+        'appearance' => $this->input->post('appearance',TRUE),
+        'consistency' => $this->input->post('consistency',TRUE),
+        'mucus' => $this->input->post('mucus',TRUE),
+        'ova' => $this->input->post('ova',TRUE),
+        'cyst' => $this->input->post('cyst',TRUE),
+        'larva' => $this->input->post('larva',TRUE),
+        'organism' => $this->input->post('organism',TRUE),
 	    );
 
             $this->Diagnoses_model->insert($data);
@@ -114,7 +135,13 @@ class Diagnoses extends CI_Controller
 		'diarrhorea' => set_value('diarrhorea', $row->diarrhorea),
 		'vomiting' => set_value('vomiting', $row->vomiting),
 		'dehydration' => set_value('dehydration', $row->dehydration),
-		'patient_id' => set_value('patient_id', $row->patient_id),
+        'patient_id' => set_value('patient_id', $row->patient_id),
+        'appearance' => set_value('appearance', $row->appearance),
+        'consistency' => set_value('consistency', $row->consistency),
+        'mucus' => set_value('mucus', $row->mucus),
+        'ova' => set_value('ova', $row->ova),
+        'larva' => set_value('larva', $row->larva),
+        'organism' => set_value('organism', $row->organism),
 	    );
             $this->load->view('diagnoses/diagnoses_form', $data);
         } else {
@@ -134,7 +161,14 @@ class Diagnoses extends CI_Controller
 		'diarrhorea' => $this->input->post('diarrhorea',TRUE),
 		'vomiting' => $this->input->post('vomiting',TRUE),
 		'dehydration' => $this->input->post('dehydration',TRUE),
-		'patient_id' => $this->input->post('patient_id',TRUE),
+        'patient_id' => $this->input->post('patient_id',TRUE),
+        'appearance' => $this->input->post('appearance',TRUE),
+        'consistency' => $this->input->post('consistency',TRUE),
+        'mucus' => $this->input->post('mucus',TRUE),
+        'ova' => $this->input->post('ova',TRUE),
+        'cyst' => $this->input->post('cyst',TRUE),
+        'larva' => $this->input->post('larva',TRUE),
+        'organism' => $this->input->post('organism',TRUE),
 	    );
 
             $this->Diagnoses_model->update($this->input->post('id', TRUE), $data);
@@ -164,6 +198,13 @@ class Diagnoses extends CI_Controller
             'vomiting' => $row->vomiting,
             'dehydration' => $row->dehydration,
             'patient_id' => $row->patient_id,
+            'appearance'=> $row->appearance,
+            'consistency'=> $row->consistency,
+            'mucus'=> $row->mucus,
+            'ova'=> $row->ova,
+            'cyst'=> $row->cyst,
+            'larva'=> $row->larva,
+            'organism'=> $row->organism,
             'created_at' => $row->created_at,
             'updated_at' => $row->updated_at,
             );

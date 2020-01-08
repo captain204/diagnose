@@ -38,11 +38,18 @@ class Diagnoses_model extends CI_Model
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id', $q);
-	$this->db->or_like('diarrhorea', $q);
-	$this->db->or_like('vomiting', $q);
-	$this->db->or_like('dehydration', $q);
-	$this->db->or_like('patient_id', $q);
-	$this->db->from($this->table);
+        $this->db->or_like('diarrhorea', $q);
+        $this->db->or_like('vomiting', $q);
+        $this->db->or_like('dehydration', $q);
+        $this->db->or_like('patient_id', $q);
+        $this->db->or_like('appearance', $q);
+        $this->db->or_like('consistency', $q);
+        $this->db->or_like('mucus', $q);
+        $this->db->or_like('ova', $q);
+        $this->db->or_like('cyst', $q);
+        $this->db->or_like('larva', $q);
+        $this->db->or_like('organism', $q);
+        $this->db->from($this->table);
         return $this->db->count_all_results();
     }
 
@@ -50,12 +57,19 @@ class Diagnoses_model extends CI_Model
     function get_limit_data($limit, $start = 0, $q = NULL) {
         $this->db->order_by($this->id, $this->order);
         $this->db->like('id', $q);
-	$this->db->or_like('diarrhorea', $q);
-	$this->db->or_like('vomiting', $q);
-	$this->db->or_like('dehydration', $q);
-	$this->db->or_like('patient_id', $q);
-	$this->db->limit($limit, $start);
-        return $this->db->get($this->table)->result();
+        $this->db->or_like('diarrhorea', $q);
+        $this->db->or_like('vomiting', $q);
+        $this->db->or_like('dehydration', $q);
+        $this->db->or_like('patient_id', $q);
+        $this->db->or_like('appearance', $q);
+        $this->db->or_like('consistency', $q);
+        $this->db->or_like('mucus', $q);
+        $this->db->or_like('ova', $q);
+        $this->db->or_like('cyst', $q);
+        $this->db->or_like('larva', $q);
+        $this->db->or_like('organism', $q);
+        $this->db->limit($limit, $start);
+            return $this->db->get($this->table)->result();
     }
 
     // insert data

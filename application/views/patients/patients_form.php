@@ -51,7 +51,13 @@
                 </div>
                 <div class="form-group">
                     <label for="varchar">Doctors Name <?php echo form_error('doc_name') ?></label>
-                    <input type="text" class="form-control" name="doc_name" id="doc_name"  value="<?php echo $doc_name; ?>" />
+                    <select name="doc_name"  id="doc_name" class="form-control">
+                        <option></option>
+                        <option value="Dr Bala Malik">Dr Bala Malik</option>
+                        <option value="Dr Nasiru Muhammad">Dr Nasiru Muhammad</option>
+                        <option value="Dr Kayode Fashola">Dr Kayode Fashola</option>
+                        <option value="Dr Amina Muhammad">Dr Amina Muhammad</option>
+                    </select>
                 </div>
                     <input type="hidden" class="form-control" name="doc_id" id="doc_id" value="2"/>
                 <input type="hidden" name="id" value="<?php echo $id; ?>" /> 

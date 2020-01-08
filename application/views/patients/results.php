@@ -43,6 +43,13 @@
                             <tr><td>Diarrhorea</td><td><?php echo $diarrhorea; ?></td></tr>
                             <tr><td>Vomiting</td><td><?php echo $vomiting; ?></td></tr>
                             <tr><td>Dehydration</td><td><?php echo $dehydration; ?></td></tr>
+                            <tr><td>Appearance</td><td><?php echo $appearance; ?></td></tr>
+                            <tr><td>Consistency</td><td><?php echo $consistency; ?></td></tr>
+                            <tr><td>Mucus</td><td><?php echo $mucus; ?></td></tr>
+                            <tr><td>Ova</td><td><?php echo $ova; ?></td></tr>
+                            <tr><td>Cyst</td><td><?php echo $cyst; ?></td></tr>
+                            <tr><td>Larva</td><td><?php echo $larva; ?></td></tr>
+                            <tr><td>Organism</td><td><?php echo $organism; ?></td></tr>
                           </table>
                           <h2 class="text-center"> Status: <?=$status;?>  </h2>
                           <p class="text-center"> <?=$symptoms;?> </p>

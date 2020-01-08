@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2020 at 12:25 PM
+-- Generation Time: Jan 08, 2020 at 07:46 PM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -55,6 +55,13 @@ CREATE TABLE `diagnoses` (
   `vomiting` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `dehydration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `patient_id` int(10) UNSIGNED NOT NULL,
+  `appearance` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `consistency` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mucus` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ova` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `cyst` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `larva` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `organism` varchar(250) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -63,10 +70,12 @@ CREATE TABLE `diagnoses` (
 -- Dumping data for table `diagnoses`
 --
 
-INSERT INTO `diagnoses` (`id`, `diarrhorea`, `vomiting`, `dehydration`, `patient_id`, `created_at`, `updated_at`) VALUES
-(1, 'mild', 'mild', 'moderate', 1, '2019-11-27 16:56:15', '2019-11-27 16:56:15'),
-(2, 'mild', 'mild', 'moderate', 5, NULL, NULL),
-(3, 'moderate', 'moderate', 'severe', 6, NULL, NULL);
+INSERT INTO `diagnoses` (`id`, `diarrhorea`, `vomiting`, `dehydration`, `patient_id`, `appearance`, `consistency`, `mucus`, `ova`, `cyst`, `larva`, `organism`, `created_at`, `updated_at`) VALUES
+(1, 'mild', 'mild', 'moderate', 1, '', '', '', '', '', '', '', '2019-11-27 16:56:15', '2019-11-27 16:56:15'),
+(2, 'mild', 'mild', 'moderate', 5, '', '', '', '', '', '', '', NULL, NULL),
+(3, 'moderate', 'moderate', 'severe', 6, '', '', '', '', '', '', '', NULL, NULL),
+(4, 'moderate', 'mild', 'moderate', 7, 'yellow', 'green', 'yes', '3.5', '5.5', '5', 'bacteria', NULL, NULL),
+(5, 'moderate', 'severe', 'mild', 8, 'yellow', 'green', 'yes', '3.5', '5.5', '5', 'bacteria', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -146,7 +155,9 @@ CREATE TABLE `patients` (
 INSERT INTO `patients` (`id`, `firstname`, `lastname`, `marital_status`, `date_birth`, `phone`, `email`, `address`, `occupation`, `doc_name`, `doc_id`) VALUES
 (1, 'Eniola', 'Badmos', 'single', '1988-01-04', '08023484844', 'eni@gmail.com', 'Lekki Phase Two', 'Actress', 'admin', 1),
 (5, 'Uncle', 'Nas', 'married', '2020-01-02', '07067653476', 'test@gmail.com', 'Bauchi', 'Doctor', 'Mr Doctor', 2),
-(6, 'Folasade', 'Martins', 'married', '2020-01-03', '08023484844', 'john@example.com', 'Jos North', 'Actress', 'Mr Doctor', 2);
+(6, 'Folasade', 'Martins', 'married', '2020-01-03', '08023484844', 'john@example.com', 'Jos North', 'Actress', 'Mr Doctor', 2),
+(7, 'Bolanle', 'Kudus', 'married', '1992-05-04', '07067653476', 'bolanle@gmail.com', 'Bauchi', 'Trader', 'Dr Nasiru Muhammad', 2),
+(8, 'Final', 'Test', 'married', '1992-08-03', '07067653476', 'aaron@gmail.com', 'Bauchi', 'Developer', 'Dr Bala Malik', 2);
 
 -- --------------------------------------------------------
 
@@ -259,7 +270,7 @@ ALTER TABLE `admin`
 -- AUTO_INCREMENT for table `diagnoses`
 --
 ALTER TABLE `diagnoses`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -277,7 +288,7 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `reports`
